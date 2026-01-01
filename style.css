@@ -1,0 +1,191 @@
+/* Universal selector - resets default spacing for all elements */
+* {
+  margin: 0;         /* Remove default margins */
+  padding: 0;        /* Remove default padding */
+  box-sizing: border-box; /* Include padding/border in width/height calculations */
+}
+
+/* Body styling - main page background and layout */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font stack */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Purple gradient background */
+  min-height: 100vh; /* Full viewport height */
+  display: flex;     /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  padding: 20px;    /* Add spacing on edges */
+}
+
+/* Card container - the white box holding all content */
+.card {
+  background: white; /* White background */
+  padding: 30px;     /* Internal spacing */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3); /* Drop shadow for depth */
+  animation: fadeIn 0.6s ease-out; /* Fade in animation */
+  width: 100%;       /* Full width (responsive) */
+  max-width: 500px;  /* Maximum width limit */
+}
+
+/* Heading inside card */
+.card h1 {
+  color: #333;       /* Dark gray text */
+  margin-bottom: 20px; /* Space below heading */
+  text-align: center; /* Center the text */
+}
+
+/* Input field for city name */
+input {
+  width: 100%;       /* Full width of container */
+  padding: 12px 15px; /* Internal spacing */
+  margin-bottom: 15px; /* Space below input */
+  border: 2px solid #e0e0e0; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 16px;   /* Text size */
+  transition: border-color 0.3s; /* Smooth color change animation */
+}
+
+/* Input field focus state - when user clicks on it */
+input:focus {
+  outline: none;     /* Remove default outline */
+  border-color: #667eea; /* Change border to purple when focused */
+}
+
+/* Button styling */
+button {
+  width: 100%;       /* Full width */
+  background: linear-gradient(135deg, #667eea, #764ba2); /* Purple gradient */
+  color: white;      /* White text */
+  padding: 12px 20px; /* Internal spacing */
+  border: none;      /* Remove border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 16px;   /* Text size */
+  font-weight: bold; /* Bold text */
+  cursor: pointer;   /* Hand cursor on hover */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth animations */
+}
+
+/* Button hover state - when mouse hovers over button */
+button:hover {
+  transform: translateY(-2px); /* Move button up slightly */
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4); /* Add glow effect */
+}
+
+/* Button active state - when clicked */
+button:active {
+  transform: translateY(0); /* Reset position back */
+}
+
+/* Container for weather display card */
+.weather-card {
+  animation: slideIn 0.5s ease-out; /* Slide in animation */
+}
+
+/* City name heading in weather card */
+.city-name {
+  color: #667eea;    /* Purple text */
+  font-size: 28px;   /* Large font */
+  margin-bottom: 10px; /* Space below */
+  text-align: center; /* Center aligned */
+}
+
+/* Weather condition description */
+.condition {
+  text-align: center; /* Center aligned */
+  color: #666;       /* Gray text */
+  font-size: 16px;   /* Medium font */
+  margin-bottom: 25px; /* Space below */
+  font-style: italic; /* Italic styling */
+}
+
+/* Grid layout for weather items - 2 columns */
+.weather-grid {
+  display: grid;     /* Use CSS Grid */
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 15px;         /* Space between items */
+}
+
+/* Individual weather item (temp, humidity, etc.) */
+.weather-item {
+  background: linear-gradient(135deg, #f5f7fa, #e9ecef); /* Light gradient */
+  padding: 15px;     /* Internal spacing */
+  border-radius: 12px; /* Rounded corners */
+  display: flex;     /* Use flexbox */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items */
+  text-align: center; /* Center text */
+  border-left: 4px solid #667eea; /* Purple left border accent */
+}
+
+/* Label text for weather items (e.g., "Temperature") */
+.weather-item .label {
+  color: #999;       /* Light gray text */
+  font-size: 12px;   /* Small font */
+  text-transform: uppercase; /* Uppercase letters */
+  letter-spacing: 0.5px; /* Wider letter spacing */
+  margin-bottom: 8px; /* Space below label */
+}
+
+/* Weather value numbers (e.g., "25°C") */
+.weather-item .value {
+  color: #333;       /* Dark gray text */
+  font-size: 22px;   /* Large font */
+  font-weight: bold; /* Bold text */
+}
+
+/* Secondary value (e.g., "12 km/h" below m/s) */
+.weather-item .sub-value {
+  color: #aaa;       /* Medium gray text */
+  font-size: 11px;   /* Tiny font */
+  margin-top: 4px;   /* Space above */
+}
+
+/* Loading message styling */
+.loading {
+  text-align: center; /* Center aligned */
+  color: #667eea;    /* Purple text */
+  font-size: 18px;   /* Medium font */
+  font-weight: bold; /* Bold text */
+  padding: 20px;     /* Internal spacing */
+  animation: pulse 1.5s infinite; /* Pulsing animation */
+}
+
+/* Error message styling */
+.error {
+  text-align: center; /* Center aligned */
+  color: #e74c3c;    /* Red text */
+  font-size: 16px;   /* Medium font */
+  padding: 20px;     /* Internal spacing */
+  background: #fadbd8; /* Light red background */
+  border-radius: 8px; /* Rounded corners */
+  border-left: 4px solid #e74c3c; /* Red left border */
+}
+
+/* Fade In animation - element appears gradually */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); } /* Start: invisible, below */
+  to   { opacity: 1; transform: translateY(0); }    /* End: visible, in place */
+}
+
+/* Slide In animation - element slides up from below */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); } /* Start: invisible, below */
+  to   { opacity: 1; transform: translateY(0); }    /* End: visible, in place */
+}
+
+/* Pulse animation - element fades in and out */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }   /* Full opacity at start and end */
+  50% { opacity: 0.5; }      /* Half opacity in middle */
+}
+
+/* Media query - adjust styles for mobile devices (screens 600px and smaller) */
+@media (max-width: 600px) {
+  .card {
+    padding: 20px; /* Reduce padding on mobile */
+  }
+  
+  .weather-grid {
+    grid-template-columns: 1fr; /* Single column layout on mobile */
+  }
+}
