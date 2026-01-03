@@ -81,3 +81,52 @@ document.getElementById("btn").addEventListener("click", async () => {
     result.innerHTML = `<div class='error'>Error fetching weather. Please check the city name.</div>`;
   }
 });
+
+/*
+User
+  |
+  | clicks "Get Weather" with city input
+  v
+Browser (app.js)
+  |
+  | HTTP GET https://wttr.in/{city}?format=j1
+  v
+wttr.in API
+  |
+  | JSON response (current_condition[0] fields)
+  v
+Browser renders weather card into #result
+*/
+
+/*
+(file changes)
+   +--------------------------+
+   |        Developer         |
+   +--------------------------+
+               |
+               v
+        +--------------+
+        | Live Server  |
+        | (HTTP + WS)  |
+        +--------------+
+           |        ^
+  serves   |        | file-change notice
+  files    |        | via WebSocket (/ws)
+           v        |
+   +-------------------------+
+   |      Browser Tab        |
+   |  http://127.0.0.1:5500  |
+   +-------------------------+
+           |
+           | user clicks "Get Weather"
+           v
+   +-------------------------+
+   |  Weather App (app.js)   |
+   +-------------------------+
+           |
+           | fetch https://wttr.in/{city}?format=j1
+           v
+     +---------------+
+     |  wttr.in API  |
+     +---------------+
+*/
